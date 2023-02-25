@@ -1,5 +1,8 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
+
+import UserForm from './UserForm';
 import UserList from './UserList';
+import Layout from './Layout';
 
 export class App extends Component {
   state = {
@@ -12,10 +15,21 @@ export class App extends Component {
     
   };
 
+  addContact = newContact => {
+    this.setState(prevState => {
+      return {
+        contacts: [...prevState.contacts, newContact],
+      };
+    });
+  };
+
 
   render() {
     return (
+      <Layout>
+        <UserForm onSave={this.addContact} />
         <UserList items={this.state.contacts} />
+      </Layout>
     );
   }
 }
