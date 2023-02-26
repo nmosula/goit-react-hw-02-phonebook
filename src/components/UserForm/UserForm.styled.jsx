@@ -18,3 +18,8 @@ export const FormField = styled.label`
 export const ErrorMessage = styled(FormikError)`
   color: tomato;
 `;
+
+export const FrmButton = styled.button`
+  width: 120px;
+  cursor: pointer;
+`;
